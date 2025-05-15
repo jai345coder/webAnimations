@@ -1,0 +1,44 @@
+*{
+  margin: 0;
+  padding:0 ;
+  box-sizing: border-box; 
+}
+html,body{
+    height: 100%;
+    width:100%;
+
+}
+
+#main{
+    /* main div ko height width nahi deni hai */
+
+}
+#page1{
+    height:100vh;
+    width:100%;
+    background-color: rgb(191, 197, 195);
+
+}
+/* image */
+#img{
+   padding: 20vh 30vw;
+  
+}
+#img img{
+    height:40vh;
+    width:30vw;
+    object-fit: cover;
+
+}
+#page2{
+    height:100vh;
+    width:100%;
+    background-color: rgb(145, 149, 147);
+
+}
+#page3{
+    height:100vh;
+    width:100%;
+    background-color: rgb(95, 97, 96);
+
+}

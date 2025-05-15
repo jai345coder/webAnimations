@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30 Image Animations</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .img-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      transition: all 0.5s ease;
+    }
+
+    /* 1. Zoom In */
+    .zoom-in:hover img {
+      transform: scale(1.2);
+    }
+
+    /* 2. Zoom Out */
+    .zoom-out:hover img {
+      transform: scale(0.8);
+    }
+
+    /* 3. Rotate */
+    .rotate:hover img {
+      transform: rotate(15deg);
+    }
+
+    /* 4. Skew */
+    .skew:hover img {
+      transform: skewX(15deg);
+    }
+
+    /* 5. Grayscale */
+    .grayscale img {
+      filter: grayscale(100%);
+    }
+    .grayscale:hover img {
+      filter: grayscale(0);
+    }
+
+    /* 6. Blur */
+    .blur img {
+      filter: blur(2px);
+    }
+    .blur:hover img {
+      filter: blur(0);
+    }
+
+    /* 7. Brightness */
+    .brightness img {
+      filter: brightness(0.5);
+    }
+    .brightness:hover img {
+      filter: brightness(1);
+    }
+
+    /* 8. Sepia */
+    .sepia img {
+      filter: sepia(100%);
+    }
+    .sepia:hover img {
+      filter: sepia(0);
+    }
+
+    /* 9. Invert */
+    .invert img {
+      filter: invert(1);
+    }
+    .invert:hover img {
+      filter: invert(0);
+    }
+
+    /* 10. Opacity */
+    .opacity img {
+      opacity: 0.5;
+    }
+    .opacity:hover img {
+      opacity: 1;
+    }
+
+    /* 11. Slide Up */
+    .slide-up:hover img {
+      transform: translateY(-20px);
+    }
+
+    /* 12. Slide Down */
+    .slide-down:hover img {
+      transform: translateY(20px);
+    }
+
+    /* 13. Slide Left */
+    .slide-left:hover img {
+      transform: translateX(-20px);
+    }
+
+    /* 14. Slide Right */
+    .slide-right:hover img {
+      transform: translateX(20px);
+    }
+
+    /* 15. Shadow Pop */
+    .shadow-pop:hover img {
+      box-shadow: 0 0 20px #f0f;
+    }
+
+    /* 16. Border Pulse */
+    .border-pulse:hover img {
+      border: 4px solid #0ff;
+    }
+
+    /* 17. Flip Y */
+    .flip-y:hover img {
+      transform: rotateY(180deg);
+    }
+
+    /* 18. Flip X */
+    .flip-x:hover img {
+      transform: rotateX(180deg);
+    }
+
+    /* 19. Rotate & Scale */
+    .rotate-scale:hover img {
+      transform: rotate(360deg) scale(1.1);
+    }
+
+    /* 20. Float Up */
+    .float-up {
+      animation: floatUp 3s infinite ease-in-out;
+    }
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* 21. Flash */
+    .flash {
+      animation: flash 1.5s infinite;
+    }
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    /* 22. Shake */
+    .shake:hover img {
+      animation: shake 0.5s;
+    }
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+
+    /* 23. Pulse Scale */
+    .pulse-scale {
+      animation: pulseScale 2s infinite;
+    }
+    @keyframes pulseScale {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* 24. Border Glow */
+    .border-glow:hover img {
+      box-shadow: 0 0 20px #0ff;
+    }
+
+    /* 25. Zoom Rotate */
+    .zoom-rotate:hover img {
+      transform: scale(1.2) rotate(15deg);
+    }
+
+    /* 26. Ripple Hover */
+    .ripple:hover img {
+      box-shadow: 0 0 20px #fff, 0 0 40px #0ff;
+    }
+
+    /* 27. Swing */
+    .swing:hover img {
+      transform-origin: top center;
+      animation: swing 1s;
+    }
+    @keyframes swing {
+      20% { transform: rotate(15deg); }
+      40% { transform: rotate(-10deg); }
+      60% { transform: rotate(5deg); }
+      80% { transform: rotate(-5deg); }
+      100% { transform: rotate(0); }
+    }
+
+    /* 28. Heartbeat */
+    .heartbeat {
+      animation: heartbeat 1.5s infinite;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    /* 29. Pop In */
+    .pop-in {
+      animation: popIn 0.5s ease-in;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* 30. Light Speed */
+    .light-speed {
+      animation: lightSpeed 1s ease-out;
+    }
+    @keyframes lightSpeed {
+      0% { transform: translateX(100%) skewX(-30deg); opacity: 0; }
+      100% { transform: translateX(0) skewX(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Repeat this structure for each animation -->
+  <div class="img-container zoom-in"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Zoom In" /></div>
+  <div class="img-container zoom-out"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Zoom Out" /></div>
+  <div class="img-container rotate"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Rotate" /></div>
+  <div class="img-container skew"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Skew" /></div>
+  <div class="img-container grayscale"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Grayscale" /></div>
+  <div class="img-container blur"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Blur" /></div>
+  <div class="img-container brightness"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Brightness" /></div>
+  <div class="img-container sepia"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Sepia" /></div>
+  <div class="img-container invert"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Invert" /></div>
+  <div class="img-container opacity"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Opacity" /></div>
+  <div class="img-container slide-up"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Slide Up" /></div>
+  <div class="img-container slide-down"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Slide Down" /></div>
+  <div class="img-container slide-left"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Slide Left" /></div>
+  <div class="img-container slide-right"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Slide Right" /></div>
+  <div class="img-container shadow-pop"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Shadow Pop" /></div>
+  <div class="img-container border-pulse"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Border Pulse" /></div>
+  <div class="img-container flip-y"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Flip Y" /></div>
+  <div class="img-container flip-x"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Flip X" /></div>
+  <div class="img-container rotate-scale"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Rotate Scale" /></div>
+  <div class="img-container float-up"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Float Up" /></div>
+  <div class="img-container flash"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Flash" /></div>
+  <div class="img-container shake"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Shake" /></div>
+  <div class="img-container pulse-scale"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Pulse Scale" /></div>
+  <div class="img-container border-glow"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Border Glow" /></div>
+  <div class="img-container zoom-rotate"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Zoom Rotate" /></div>
+  <div class="img-container ripple"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Ripple" /></div>
+  <div class="img-container swing"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Swing" /></div>
+  <div class="img-container heartbeat"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Heartbeat" /></div>
+  <div class="img-container pop-in"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Pop In" /></div>
+  <div class="img-container light-speed"><img src="https://imgs.search.brave.com/hIjw3IWWuGTvz-bXAGzsx9LHQ5iprpRglMxsBPQugFQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbG93/ZXJzZm9yZHJlYW1z/LmNvbS9jZG4vc2hv/cC9maWxlcy8yMDI1/LTAxLTIzX0Y0RF9z/cHJpbmcxMjcxOTIu/anBnP3Y9MTc0NjA0/NjEyOCZ3aWR0aD05/NjA" alt="Light Speed" /></div>
+</body>
+</html>

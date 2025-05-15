@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locomotive Scroll Animations</title>
+  <!-- Locomotive Scroll CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.0.0/dist/locomotive-scroll.min.css">
+
+  <style>
+    /* Global styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    .content {
+      width: 100%;
+      height: 1000%;
+      overflow: hidden;
+      scroll-behavior: smooth;
+      padding: 40px;
+    }
+
+    .box {
+      background-color: #3498db;
+      color: white;
+      width: 300px;
+      height: 300px;
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      opacity: 0;
+      transform: translateY(100px);
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+
+    .box.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Fade-in Animation */
+    .fade-in {
+      animation: fadeIn 2s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Slide-in from left */
+    .slide-left {
+      animation: slideLeft 1s ease-out forwards;
+    }
+
+    @keyframes slideLeft {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+
+    /* Pulse effect */
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
+    }
+
+    /* Scroll-based animation */
+    .scroll-box {
+      opacity: 0;
+      transform: translateY(100px);
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+
+    .scroll-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Locomotive Scroll container -->
+  <div class="content" data-scroll-container>
+
+    <!-- Boxes with different animations -->
+    <div class="box fade-in">Fade In</div>
+    <div class="box slide-left">Slide Left</div>
+    <div class="box pulse">Pulse Effect</div>
+
+    <!-- Scroll-triggered boxes -->
+    <div class="scroll-box" data-scroll data-scroll-speed="2">Scroll-triggered Box 1</div>
+    <div class="scroll-box" data-scroll data-scroll-speed="3">Scroll-triggered Box 2</div>
+    <div class="scroll-box" data-scroll data-scroll-speed="4">Scroll-triggered Box 3</div>
+
+  </div>
+
+  <!-- Locomotive Scroll JS -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.0.0/dist/locomotive-scroll.min.js"></script>
+
+  <!-- Locomotive Scroll JS initialization -->
+  <script>
+    // Initialize Locomotive Scroll
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector('.content'),
+      smooth: true,
+      getDirection: true
+    });
+
+    // Scroll event to trigger animations
+    const boxes = document.querySelectorAll('.scroll-box');
+    window.addEventListener('scroll', () => {
+      boxes.forEach(box => {
+        const boxPosition = box.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        // If the box is visible in the viewport, add 'visible' class for animation
+        if (boxPosition < windowHeight) {
+          box.classList.add('visible');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

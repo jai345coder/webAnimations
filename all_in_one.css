@@ -1,0 +1,145 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body,html{
+   height: 100%;
+   width: 100%;
+    padding: 0;
+}
+#main
+{
+    height: 100%;
+    width: 100%;
+}
+
+#page1{
+    height: 10vh;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(185, 185, 185);
+
+}
+#page2{
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(113, 113, 113);
+  
+}
+button{
+    
+    height: 40px;
+    width: 120px;
+    border-radius: 100px;
+   position: absolute;
+    background-color: blueviolet;
+   
+}
+
+button::before{
+    content:"now";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 0%;
+    background-color: #00eb8f;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+   
+    
+   
+}
+button:hover::before{
+    width: 100%;
+    transition: all ease-in-out 0.5s;
+   z-index: 1;
+ 
+}
+
+#scroller{
+    height: 10%;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    gap: 20px;
+    box-sizing: border-box;
+}
+#container{
+display: inline-block;
+height: 100%;
+gap: 40px;
+padding: 10px;
+width: 200%;
+animation:scroll-left 20s linear infinite;
+animation-duration: 2s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+gap: 20px;
+}
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+.box{
+    height: 100%;
+    width: 27%;
+    background-color: rgb(120, 119, 119);
+    display: inline-block;
+   
+   
+    gap: 20px;
+    border: 2px solid rgb(0, 0, 0);
+
+}
+.scroller-wrapper {
+      width: 100%;
+      overflow: hidden;
+      box-sizing: border-box;
+      padding: 20px 0;
+      background: #111;
+    }
+
+    .scroller-track {
+      display: flex;
+      width: max-content;
+      animation: scroll-left 10s linear infinite;
+    }
+
+    .box {
+      width: 200px;
+      height: 150px;
+      margin-right: 20px;
+      background: #444;
+      color: #fff;
+      font-size: 1.5rem;
+      text-align: center;
+      line-height: 150px;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-45%);
+      }
+    }
+.box h6{
+    font-size: 30px;
+    font-family: cooper;
+    color: #ffffff;
+}

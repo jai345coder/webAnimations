@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Website Animations</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #e3ffe7, #d9e7ff);
+      padding: 30px;
+      color: #333;
+    }
+
+    h2 {
+      margin: 30px 0 10px;
+      color: #222;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    .box, .btn, .img, .video, .scroll, .text {
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    img {
+      width: 200px;
+      border-radius: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    /* Animations */
+    .fade-in { opacity: 0; animation: fadeIn 2s forwards; }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    .slide-left { transform: translateX(-100%); animation: slideLeft 1s forwards; }
+    @keyframes slideLeft { to { transform: translateX(0); } }
+
+    .slide-right { transform: translateX(100%); animation: slideRight 1s forwards; }
+    @keyframes slideRight { to { transform: translateX(0); } }
+
+    .slide-top { transform: translateY(-100%); animation: slideTop 1s forwards; }
+    @keyframes slideTop { to { transform: translateY(0); } }
+
+    .slide-bottom { transform: translateY(100%); animation: slideBottom 1s forwards; }
+    @keyframes slideBottom { to { transform: translateY(0); } }
+
+    .bounce { animation: bounce 2s infinite; }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .pulse { animation: pulse 2s infinite; }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .rotate { animation: rotate 4s linear infinite; }
+    @keyframes rotate { to { transform: rotate(360deg); } }
+
+    .hover-scale:hover { transform: scale(1.1); transition: transform 0.3s; }
+
+    .wiggle { animation: wiggle 1s infinite; }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+
+    .flip { animation: flip 2s forwards; }
+    @keyframes flip { to { transform: rotateY(360deg); } }
+
+    .typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: .15em solid orange;
+      animation: typing 4s steps(40, end), blink .75s step-end infinite;
+    }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent } }
+
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+    }
+
+    .marquee div {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 10s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+
+    video {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <section>
+    <h2>Fade In Text</h2>
+    <div class="text fade-in">This text fades in</div>
+
+    <h2>Slide In Left</h2>
+    <div class="text slide-left">Sliding from Left</div>
+
+    <h2>Slide In Right</h2>
+    <div class="text slide-right">Sliding from Right</div>
+
+    <h2>Slide From Top</h2>
+    <div class="box slide-top">Top Slide</div>
+
+    <h2>Slide From Bottom</h2>
+    <div class="box slide-bottom">Bottom Slide</div>
+
+    <h2>Text Wiggle</h2>
+    <div class="text wiggle">Wiggle Effect</div>
+
+    <h2>Text Flip</h2>
+    <div class="text flip">Flipping Text</div>
+  </section>
+
+  <section>
+    <h2>Bounce Button</h2>
+    <button class="bounce">Bounce Me</button>
+
+    <h2>Pulse Button</h2>
+    <button class="pulse">Pulse Me</button>
+
+    <h2>Hover Scale</h2>
+    <button class="hover-scale">Hover to Scale</button>
+  </section>
+
+  <section>
+    <h2>Image Slide Top</h2>
+    <img class="slide-top" src="https://via.placeholder.com/200" alt="slide image" />
+
+    <h2>Rotate Icon</h2>
+    <div class="box rotate">🔄</div>
+  </section>
+
+  <section>
+    <h2>Typewriter Effect</h2>
+    <div class="text typewriter">Typing like a typewriter...</div>
+
+    <h2>Marquee Infinite Scroll</h2>
+    <div class="marquee"><div>🎉 This is a continuously scrolling marquee animation! 🎉</div></div>
+  </section>
+
+  <section>
+    <h2>Video with Auto Play (Muted)</h2>
+    <video autoplay muted loop>
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </section>
+
+</body>
+</html>

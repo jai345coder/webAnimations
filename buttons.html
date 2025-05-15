@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20+ Button Animations with ::before and ::after</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 40px;
+      background: #f0f0f0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .btn {
+      position: relative;
+      padding: 15px 30px;
+      font-size: 1rem;
+      color: white;
+      background: #6200ea;
+      border: none;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      z-index: 1;
+      transition: 0.3s;
+    }
+
+    .btn::before,
+    .btn::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      transition: all 0.3s ease;
+    }
+
+    /* 1. Slide Left */
+    .slide-left::before {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: #3700b3;
+    }
+    .slide-left:hover::before {
+      left: 0;
+    }
+
+    /* 2. Slide Right */
+    .slide-right::before {
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+      background: #03dac6;
+    }
+    .slide-right:hover::before {
+      right: 0;
+    }
+
+    /* 3. Slide Top */
+    .slide-top::before {
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ff0266;
+    }
+    .slide-top:hover::before {
+      top: 0;
+    }
+
+    /* 4. Slide Bottom */
+    .slide-bottom::before {
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #018786;
+    }
+    .slide-bottom:hover::before {
+      bottom: 0;
+    }
+
+    /* 5. Border Zoom */
+    .border-zoom::before {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px solid #fff;
+      transform: scale(1.5);
+      opacity: 0;
+      border-radius: 8px;
+    }
+    .border-zoom:hover::before {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    /* 6. Glow Pulse */
+    .glow::before {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 30px #bb86fc;
+      opacity: 0;
+    }
+    .glow:hover::before {
+      opacity: 1;
+    }
+
+    /* 7. Diagonal Wipe */
+    .diagonal::before {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff0266, #3700b3);
+    }
+    .diagonal:hover::before {
+      left: 0;
+    }
+
+    /* 8. Shine */
+    .shine::before {
+      left: -75%;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
+      transform: skewX(-20deg);
+    }
+    .shine:hover::before {
+      animation: shineAnim 0.8s forwards;
+    }
+
+    @keyframes shineAnim {
+      100% {
+        left: 125%;
+      }
+    }
+
+    /* 9. Ripple */
+    .ripple::after {
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+    .ripple:hover::after {
+      animation: rippleAnim 0.6s ease-out;
+    }
+
+    @keyframes rippleAnim {
+      to {
+        width: 300%;
+        height: 300%;
+        opacity: 0;
+      }
+    }
+
+    /* 10. Corner Fill */
+    .corner-fill::before {
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      background: #03a9f4;
+    }
+    .corner-fill:hover::before {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* 11. Skew Slide */
+    .skew-slide::before {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: #6200ea;
+      transform: skewX(-45deg);
+    }
+    .skew-slide:hover::before {
+      left: 0;
+    }
+
+    /* 12. Double Border */
+    .double-border::before, .double-border::after {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: 2px solid #ff0266;
+      border-radius: 8px;
+      opacity: 0;
+    }
+    .double-border:hover::before, .double-border:hover::after {
+      opacity: 1;
+    }
+
+    /* 13. Inner Fill */
+    .inner-fill::before {
+      inset: 10%;
+      background: #3700b3;
+      opacity: 0;
+    }
+    .inner-fill:hover::before {
+      opacity: 1;
+    }
+
+    /* 14. Gradient Sweep */
+    .gradient-sweep::before {
+      inset: 0;
+      background: linear-gradient(270deg, #ff0266, #6200ea);
+      opacity: 0;
+    }
+    .gradient-sweep:hover::before {
+      opacity: 1;
+    }
+
+    /* 15. Pulse Ring */
+    .pulse-ring::after {
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border: 2px solid white;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .pulse-ring:hover::after {
+      animation: pulseRing 0.5s ease-out;
+    }
+
+    @keyframes pulseRing {
+      to {
+        width: 300%;
+        height: 300%;
+        opacity: 0;
+      }
+    }
+
+    /* 16. Underline Expand */
+    .underline::after {
+      bottom: 10px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transform: translateX(-50%);
+    }
+    .underline:hover::after {
+      width: 80%;
+    }
+
+    /* 17. Cut Corner */
+    .cut-corner::before {
+      border: 2px dashed #fff;
+      inset: 0;
+      border-radius: 0 20px;
+      opacity: 0;
+    }
+    .cut-corner:hover::before {
+      opacity: 1;
+    }
+
+    /* 18. Flip */
+    .flip::before {
+      transform: rotateY(90deg);
+      background: #ff9800;
+      inset: 0;
+      opacity: 0;
+    }
+    .flip:hover::before {
+      transform: rotateY(0deg);
+      opacity: 1;
+    }
+
+    /* 19. Pop Background */
+    .pop-bg::before {
+      inset: 0;
+      background: #009688;
+      opacity: 0;
+      transform: scale(0);
+    }
+    .pop-bg:hover::before {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    /* 20. Burst */
+    .burst::after {
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, white 10%, transparent 70%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+    .burst:hover::after {
+      animation: burstAnim 0.6s ease-out;
+    }
+
+    @keyframes burstAnim {
+      to {
+        width: 400%;
+        height: 400%;
+        opacity: 0;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <button class="btn slide-left">Slide Left</button>
+  <button class="btn slide-right">Slide Right</button>
+  <button class="btn slide-top">Slide Top</button>
+  <button class="btn slide-bottom">Slide Bottom</button>
+  <button class="btn border-zoom">Border Zoom</button>
+  <button class="btn glow">Glow Pulse</button>
+  <button class="btn diagonal">Diagonal Fill</button>
+  <button class="btn shine">Shine</button>
+  <button class="btn ripple">Ripple</button>
+  <button class="btn corner-fill">Corner Fill</button>
+  <button class="btn skew-slide">Skew Slide</button>
+  <button class="btn double-border">Double Border</button>
+  <button class="btn inner-fill">Inner Fill</button>
+  <button class="btn gradient-sweep">Gradient Sweep</button>
+  <button class="btn pulse-ring">Pulse Ring</button>
+  <button class="btn underline">Underline Expand</button>
+  <button class="btn cut-corner">Cut Corner</button>
+  <button class="btn flip">Flip Reveal</button>
+  <button class="btn pop-bg">Pop Background</button>
+  <button class="btn burst">Burst Effect</button>
+</body>
+</html>
